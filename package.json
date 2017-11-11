@@ -1,0 +1,107 @@
+{
+  "name": "contribute-buddy",
+  "version": "0.1.0",
+  "description": "Interactive command line user interface for a guided tour through your project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smollweide/contribute-buddy.git"
+  },
+  "keywords": [
+    "cli",
+    "cliui",
+    "contribute",
+    "guided tour"
+  ],
+  "author": "Simon Mollweide <simon.mollweide@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smollweide/contribute-buddy/issues"
+  },
+  "homepage": "https://github.com/smollweide/contribute-buddy#readme",
+  "bin": "dist/index.js",
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.0.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "prettier": {
+    "useTabs": true,
+    "printWidth": 120,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "parser": "babylon",
+    "semi": true
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/*.{js}",
+      "src/*/*.{js}",
+      "!src/index.js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "devDependencies": {
+    "@namics/eslint-config": "4.2.0",
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "commitizen": "2.9.6",
+    "coveralls": "3.0.0",
+    "cross-env": "5.1.1",
+    "cz-conventional-changelog": "2.1.0",
+    "deep-copy": "1.4.0",
+    "husky": "0.14.3",
+    "istanbul": "0.4.5",
+    "jest": "21.2.1",
+    "lint-staged": "5.0.0",
+    "npm-run-all": "4.1.2",
+    "prettier": "1.8.2",
+    "rimraf": "2.6.2",
+    "semantic-release": "8.2.0"
+  },
+  "dependencies": {
+    "chalk": "2.3.0",
+    "commander": "2.11.0",
+    "inquirer": "3.3.0",
+    "string-length": "2.0.0"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "precommit": "lint-staged && npm-run-all lint test check-coverage",
+    "prebuild": "rimraf dist",
+    "build": "node_modules/.bin/babel --out-dir dist --ignore *.spec.js src",
+    "prepack": "rimraf contribute-buddy-0.0.0-semantically-released.tgz package",
+    "pack": "npm pack && open contribute-buddy-0.0.0-semantically-released.tgz",
+    "check-coverage": "node_modules/.bin/istanbul check-coverage --statements 99 --branches 99 --functions 99 --lines 99",
+    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "pretest": "rimraf coverage",
+    "test": "cross-env NODE_ENV=test node_modules/.bin/jest --coverage",
+    "test:dev": "cross-env NODE_ENV=test node_modules/.bin/jest --watch --notify",
+    "test:single": "cross-env NODE_ENV=test node_modules/.bin/jest",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "node_modules/.bin/eslint .",
+    "prettier": "node_modules/.bin/prettier --write 'src/**/*.js' 'bin/**/*.js' --config package.json",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  }
+}

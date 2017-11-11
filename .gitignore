@@ -1,0 +1,19 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# build
+/dist
+/package
+contribute-buddy-0.0.0-semantically-released.tgz
+
+# misc
+.DS_Store
+.idea
+.vscode
+
+npm-debug.log*
