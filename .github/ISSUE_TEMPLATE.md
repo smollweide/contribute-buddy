@@ -33,7 +33,7 @@ For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIM
 ## Please tell us about your environment
 
 <pre><code>
-lerna-terminal version: X.Y.Z
+contribute-buddy version: X.Y.Z
 <!-- Check whether this is still an issue in the most recent version -->
 
 - Node version: XX <!-- use `node --version` -->

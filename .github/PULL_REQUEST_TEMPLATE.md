@@ -3,8 +3,7 @@ Does please check if your PR fulfills the following requirements:
 
 - [ ] Tests for the changes have been added (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)
-- [ ] Pull-request wants to merge into develop branch
-
+- [ ] Follow the commit styles
 
 ## PR Type
 What kind of change does this PR introduce?
