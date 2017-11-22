@@ -25,7 +25,7 @@ describe('fetchUsername', () => {
 			setUserStorage,
 		});
 		_fetchUsername(props).then(results => {
-			expect(results).toEqual({ username: 'username' });
+			expect(results).toEqual({});
 			done();
 		});
 	});

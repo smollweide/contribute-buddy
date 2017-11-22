@@ -40,7 +40,7 @@ describe('fetchWelcome', () => {
 			renderClear,
 		});
 		_fetchWelcome({}).then(results => {
-			expect(results).toEqual({ welcome: true });
+			expect(results).toEqual({});
 			done();
 		});
 	});

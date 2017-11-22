@@ -46,7 +46,7 @@ function fetchWelcome(results, { _getPackage, _getUserStorage, _setUserStorage, 
 					pResolve({ welcome: true });
 				});
 		} else {
-			pResolve({ welcome: true });
+			pResolve({});
 		}
 	});
 }

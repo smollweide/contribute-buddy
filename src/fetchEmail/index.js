@@ -31,7 +31,7 @@ function fetchEmail(results, { _getUserStorage, _setUserStorage, _console, _inqu
 					pResolve({ email });
 				});
 		} else {
-			pResolve({ email: userStorage.email });
+			pResolve({});
 		}
 	});
 }

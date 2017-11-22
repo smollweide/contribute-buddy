@@ -31,7 +31,7 @@ function fetchUsername(results, { _inquirer, _getUserStorage, _setUserStorage, _
 					pResolve({ username });
 				});
 		} else {
-			pResolve({ username: userStorage.username });
+			pResolve({});
 		}
 	});
 }

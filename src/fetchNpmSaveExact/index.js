@@ -38,7 +38,7 @@ function fetchNpmSaveExact(results, { _inquirer, _getNpmrc, _getConfig, _execa, 
 					pResolve({ npmSaveExact: 'true' });
 				});
 		} else {
-			pResolve({ npmSaveExact: rc['save-exact'] });
+			pResolve({});
 		}
 	});
 }

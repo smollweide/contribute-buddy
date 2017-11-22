@@ -66,7 +66,7 @@ describe('fetchEmail', () => {
 			console: { log() {} },
 		});
 		_fetchEmail({}).then(results => {
-			expect(results).toEqual({ email: 'example@mail.com' });
+			expect(results).toEqual({});
 			done();
 		});
 	});
