@@ -111,6 +111,9 @@ describe('fetchSection', () => {
 			renderClear,
 			fetchTopics() {
 				done();
+				return new Promise(pResolve => {
+					pResolve({});
+				});
 			},
 			getTopicsList,
 			getUserStorage,

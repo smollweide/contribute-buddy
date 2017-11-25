@@ -20,7 +20,7 @@ describe('fetchNpmSaveExact', () => {
 			inquirer,
 		});
 		_fetchNpmSaveExact({}).then(results => {
-			expect(results).toEqual({ npmSaveExact: 'true' });
+			expect(results).toEqual({});
 			done();
 		});
 	});

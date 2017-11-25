@@ -23,6 +23,7 @@ const fetchUsername = () => new Promise(pResolve => pResolve({ username: 'userna
 const fetchEmail = () => new Promise(pResolve => pResolve({ email: 'email' }));
 const fetchNpmSaveExact = () => new Promise(pResolve => pResolve({ npmSaveExact: 'true' }));
 const fetchReadmes = () => new Promise(pResolve => pResolve({ readmes: {} }));
+const fetchComplete = () => new Promise(pResolve => pResolve);
 
 describe('runCheck', () => {
 	it('default', done => {
@@ -54,6 +55,7 @@ describe('runCheck', () => {
 			fetchEmail,
 			fetchNpmSaveExact,
 			fetchReadmes,
+			fetchComplete,
 		});
 		_runCheck();
 	});
@@ -106,6 +108,22 @@ describe('runCheck', () => {
 						},
 					})
 				),
+			fetchComplete,
+		});
+		_runCheck();
+	});
+	it('fetch complete', done => {
+		const _runCheck = resolve(runCheck, {
+			getUserStorage,
+			setUserStorage() {},
+			renderClear,
+			fetchUsername,
+			fetchEmail,
+			fetchNpmSaveExact,
+			fetchReadmes,
+			fetchComplete() {
+				done();
+			},
 		});
 		_runCheck();
 	});

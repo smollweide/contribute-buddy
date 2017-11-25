@@ -35,7 +35,7 @@ function fetchNpmSaveExact(results, { _inquirer, _getNpmrc, _getConfig, _execa, 
 
 					_execa.shellSync(`npm set save-exact true`);
 					_console.log(getLabel('npm.save.exact.stored', {}));
-					pResolve({ npmSaveExact: 'true' });
+					pResolve({});
 				});
 		} else {
 			pResolve({});

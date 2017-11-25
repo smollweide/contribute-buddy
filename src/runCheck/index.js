@@ -6,6 +6,7 @@ const fetchUsername = require('../fetchUsername');
 const fetchEmail = require('../fetchEmail');
 const fetchNpmSaveExact = require('../fetchNpmSaveExact');
 const fetchReadmes = require('../fetchReadmes');
+const fetchComplete = require('../fetchComplete');
 const getUserStorage = require('../getUserStorage');
 const setUserStorage = require('../setUserStorage');
 const renderClear = require('../renderClear');
@@ -23,6 +24,7 @@ function runCheck({
 	_fetchEmail,
 	_fetchNpmSaveExact,
 	_fetchReadmes,
+	_fetchComplete,
 }) {
 	const store = _getUserStorage();
 
@@ -33,6 +35,10 @@ function runCheck({
 		newStore.readmes = readmes;
 		_setUserStorage(newStore);
 		_renderClear();
+
+		pSeries([_fetchComplete.bind(null, resultsStore, undefined)]).then(() => {
+			_renderClear();
+		});
 	});
 }
 
@@ -45,5 +51,6 @@ module.exports = resolve(runCheck, {
 	fetchEmail,
 	fetchNpmSaveExact,
 	fetchReadmes,
+	fetchComplete,
 });
 module.exports.runCheck = runCheck;

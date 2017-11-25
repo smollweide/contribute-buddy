@@ -64,16 +64,19 @@ function fetchTopic(
 				if (index >= 0) {
 					_open(linksValues[index]);
 					prompt(originResolve || pResolve);
-				} else {
-					(originResolve || pResolve)({
-						[storeFiledName]: getCompleteObject(sections[sectionKey].topics[topicKey]),
-					});
+					return;
 				}
+
+				(originResolve || pResolve)({
+					[storeFiledName]: getCompleteObject(sections[sectionKey].topics[topicKey]),
+				});
 			});
 	};
 
 	if (originResolve) {
-		return;
+		return new Promise(pResolve => {
+			pResolve({});
+		});
 	}
 
 	return new Promise(prompt);

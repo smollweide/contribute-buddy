@@ -10,13 +10,13 @@ const getUserStorage = require('../getUserStorage');
 
 /**
  * @param {Object} sectionsObject - the sections object including selected key and index
- * @param {undefined} something - something bound somewhere -> fixme
+ * @param {Object} results - the pSeries results
  * @param {Object} di - dependency injection
  * @returns {Object} config - returns the contributebuddy config
  **/
 function fetchSection(
 	{ sections, sectionKey, sectionIndex },
-	something,
+	results,
 	{ _process, _inquirer, _renderClear, _fetchTopics, _getTopicsList, _getUserStorage }
 ) {
 	const store = _getUserStorage();

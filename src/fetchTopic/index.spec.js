@@ -18,7 +18,6 @@ const fetchTopics = () => {
 		pResolve({ a: {} });
 	});
 };
-const getTopicsList = () => 'getTopicsList';
 const getUserStorage = () => ({
 	readmes: { sectionA: { oldValue: 'old' } },
 });
@@ -49,7 +48,6 @@ describe('fetchTopic', () => {
 			inquirer,
 			renderClear,
 			fetchTopics,
-			getTopicsList,
 			getUserStorage,
 			open,
 		});
@@ -66,7 +64,6 @@ describe('fetchTopic', () => {
 			inquirer,
 			renderClear,
 			fetchTopics,
-			getTopicsList,
 			getUserStorage,
 			open,
 		});
@@ -78,7 +75,6 @@ describe('fetchTopic', () => {
 			inquirer,
 			renderClear,
 			fetchTopics,
-			getTopicsList,
 			getUserStorage: () => ({
 				readmes: {
 					'sectionA/topic1': { oldValue: JSON.stringify(props.sections[props.sectionKey].topics.topic1) },
@@ -109,7 +105,6 @@ describe('fetchTopic', () => {
 			inquirer,
 			renderClear,
 			fetchTopics,
-			getTopicsList,
 			getUserStorage: () => ({
 				readmes: {
 					'sectionA/topic1': { oldValue: JSON.stringify(props.sections[props.sectionKey].topics.topic1) },
@@ -143,20 +138,24 @@ describe('fetchTopic', () => {
 			inquirer: _inquirer,
 			renderClear,
 			fetchTopics,
-			getTopicsList,
 			getUserStorage,
 			open,
 		});
 		_fetchTopic(props, propsTopic, undefined);
 	});
 	it('select link => open', done => {
+		let counter = 0;
 		const _inquirer = {
 			prompt() {
 				return _inquirer;
 			},
 			then(cb) {
-				// cb({});
-				cb({ [propsTopic.topicKey]: 'Open "linkA" in browser' });
+				counter += 1;
+				if (counter === 1) {
+					cb({ [propsTopic.topicKey]: 'Open "linkA" in browser' });
+				} else {
+					cb({ [propsTopic.topicKey]: 'Leave' });
+				}
 			},
 		};
 		const _fetchTopic = resolve(fetchTopic, {
@@ -164,7 +163,6 @@ describe('fetchTopic', () => {
 			inquirer: _inquirer,
 			renderClear,
 			fetchTopics,
-			getTopicsList,
 			getUserStorage,
 			open(href) {
 				expect(href).toBe('linkAHref');
