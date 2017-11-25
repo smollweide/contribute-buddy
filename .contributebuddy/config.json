@@ -14,7 +14,9 @@
 		"topics.config.files.missing": "No readme files found in config, please check '{path}' file.",
 		"package.name.missing": "The repository name wasn't found in package.json.",
 		"section.topics.title": "Topics of this chapter:",
-		"link": "Open \"{label}\" in browser"
+		"link": "Open \"{label}\" in browser",
+		"completed.title": "You rocked it 👏, thanks!\n\n",
+		"completed": "If you like this tool read more about it in the following link \"contribute-buddy on github\".\nPlease feel free to add improvment ideas and issues.\nDon't forget to star it ;)\n\n"
 	},
 	"files": [
 		{
@@ -28,6 +30,16 @@
 		},
 		{
 			"path": "/docs/release.md"
+		}
+	],
+	"links": [
+		{
+			"title": "Open contribute-buddy on github",
+			"href": "https://github.com/smollweide/contribute-buddy"
+		},
+		{
+			"title": "Report improvment or issue on github",
+			"href": "https://github.com/smollweide/contribute-buddy/issues"
 		}
 	]
 }
