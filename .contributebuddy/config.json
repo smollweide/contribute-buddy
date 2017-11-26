@@ -10,13 +10,13 @@
 		"email.missing": "Please enter your email address",
 		"email.stored": "Stored email address \"{email}\"!",
 		"welcome.first.visit.title": "\nHi {name},\n\n",
-		"welcome.first.visit": "welcome to '{packageName}'.\nWe are happy to have you on the project.\nI'm your contribute buddy and will help you onboarding.\n\nBut how does it work?\n\nI will show you are relevant informations about the project here in your cli.\nThe whole introdution is splitted into sections which will help you to focus on the current topic.\nOn many sections you will find links. You can open them by select the link with the cursor keys and press enter.\n\nIf you finished a topic, select \"Continue\" or \"I accept\" and press enter.\n\nThanks a lot in advance 👏\n\n",
+		"welcome.first.visit": "welcome to '{packageName}'.\nWe are happy to have you on the project.\n\nI'm your contribute buddy and will help you onboarding.\n\nBut how does it work?\n\nI will show you all relevant informations about the project here in your cli.\nThe whole introdution is splitted into sections which will help you to focus on the current topic.\nOn many sections you will find links. You can open them by select the link with the cursor keys and press enter.\n\nIf you finished a topic, select \"Continue\" or \"I accept\" and press enter.\n\nThanks a lot in advance 👏\n\n",
 		"topics.config.files.missing": "No readme files found in config, please check '{path}' file.",
 		"package.name.missing": "The repository name wasn't found in package.json.",
 		"section.topics.title": "Topics of this chapter:",
 		"link": "Open \"{label}\" in browser",
 		"completed.title": "You rocked it 👏, thanks!\n\n",
-		"completed": "If you like this tool read more about it in the following link \"contribute-buddy on github\".\nPlease feel free to add improvment ideas and issues.\nDon't forget to star it ;)\n\n"
+		"completed": "If you like this tool read more about it in the following link \"contribute-buddy\".\nPlease feel free to add improvment ideas and issues.\nDon't forget to star it ;)\n\n"
 	},
 	"files": [
 		{
@@ -39,7 +39,7 @@
 		},
 		{
 			"title": "Report improvment or issue on github",
-			"href": "https://github.com/smollweide/contribute-buddy/issues"
+			"href": "https://github.com/smollweide/contribute-buddy/issues/new"
 		}
 	]
 }
