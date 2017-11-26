@@ -13,6 +13,7 @@ max_line_length = 120
 indent_style = space
 indent_size = 2
 trim_trailing_whitespace = false
+max_line_length = 9999
 
 [package.json]
 indent_style = space
