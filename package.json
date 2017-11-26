@@ -26,7 +26,8 @@
   "files": [
     "dist",
     "LICENSE",
-    "README.md"
+    "README.md",
+    ".contributebuddy"
   ],
   "prettier": {
     "useTabs": true,
