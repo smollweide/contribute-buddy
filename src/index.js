@@ -2,11 +2,7 @@
 'use strict';
 
 const { runCommander } = require('./commander');
+const runInit = require('./runInit');
 const runCheck = require('./runCheck');
 
-runCommander(
-	() => {},
-	() => {
-		runCheck();
-	}
-);
+runCommander(() => runInit(), () => runCheck());

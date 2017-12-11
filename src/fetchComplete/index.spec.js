@@ -40,12 +40,17 @@ describe('fetchComplete', () => {
 		});
 	});
 	it('prompt', done => {
-		const _fetchComplete = resolve(fetchComplete, {
-			inquirer: {
-				prompt() {
-					done();
-				},
+		const _inquirer = {
+			prompt() {
+				done();
+				return _inquirer;
 			},
+			then(cb) {
+				cb({});
+			},
+		};
+		const _fetchComplete = resolve(fetchComplete, {
+			inquirer: _inquirer,
 			renderClear,
 			getConfig,
 			open,
@@ -84,12 +89,18 @@ describe('fetchComplete', () => {
 		});
 	});
 	it('select link', done => {
+		let counter = 0;
 		const _inquirer = {
 			prompt() {
 				return _inquirer;
 			},
 			then(cb) {
-				cb({ completed: links[0].title });
+				counter += 1;
+				if (counter === 1) {
+					cb({ completed: links[0].title });
+				} else {
+					cb({ completed: 'Continue' });
+				}
 			},
 		};
 		const _fetchComplete = resolve(fetchComplete, {
