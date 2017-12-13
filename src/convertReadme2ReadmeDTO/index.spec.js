@@ -13,8 +13,11 @@ Text
 # Title 2
 ## Topic 2 Title
 		`;
-		const result =
-			'{"sections":{"Title":{"text":"","links":[],"topics":{"Topic Title":{"text":"** Bold Title **\\nText\\n\\u001b[4mlink label\\u001b[24m\\n[link label]","links":[{"link label":"url"}]}}},"Title 2":{"text":"","links":[],"topics":{"Topic 2 Title":{"text":"\\t\\t","links":[]}}}}}';
-		expect(JSON.stringify(convertReadme2ReadmeDTO(readmeFileData))).toBe(result);
+		const res = convertReadme2ReadmeDTO(readmeFileData);
+		expect(typeof res.sections.Title).toBe('object');
+		expect(typeof res.sections.Title.topics['Topic Title']).toBe('object');
+		expect(res.sections.Title.topics['Topic Title'].links.length).toBe(1);
+		expect(typeof res.sections['Title 2']).toBe('object');
+		expect(typeof res.sections['Title 2'].topics['Topic 2 Title']).toBe('object');
 	});
 });
