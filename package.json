@@ -1,6 +1,6 @@
 {
   "name": "contribute-buddy",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "Interactive command line user interface for a guided tour through your project",
   "repository": {
     "type": "git",
