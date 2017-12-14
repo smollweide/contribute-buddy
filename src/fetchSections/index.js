@@ -10,6 +10,12 @@ const fetchSection = require('../fetchSection');
  **/
 function fetchSections(sections, { _fetchSection }) {
 	return new Promise(pResolve => {
+		// in case of there are sections
+		if (Object.keys(sections).length <= 0) {
+			pResolve({});
+			return;
+		}
+
 		pSeries(
 			Object.keys(sections).map((sectionKey, sectionIndex) =>
 				_fetchSection.bind(null, { sections, sectionKey, sectionIndex })

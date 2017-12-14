@@ -10,6 +10,12 @@ const fetchTopic = require('../fetchTopic');
  **/
 function fetchTopics({ sections, sectionKey, sectionIndex }, { _fetchTopic }) {
 	return new Promise(pResolve => {
+		// in case of there are no topics in this section
+		if (Object.keys(sections[sectionKey].topics).length <= 0) {
+			pResolve({});
+			return;
+		}
+
 		pSeries(
 			Object.keys(sections[sectionKey].topics).map((topicKey, topicIndex) =>
 				_fetchTopic.bind(null, { sections, sectionKey, sectionIndex }, { topicKey, topicIndex })

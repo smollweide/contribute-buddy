@@ -26,4 +26,26 @@ describe('fetchTopics', () => {
 			done();
 		});
 	});
+	it('fetch without topics', done => {
+		const _fetchTopics = resolve(fetchTopics, {
+			fetchTopic() {
+				return new Promise(pResolve => {
+					pResolve({ a: {} });
+				});
+			},
+		});
+		const props = {
+			sections: {
+				section1: {
+					topics: {},
+				},
+			},
+			sectionKey: 'section1',
+			sectionIndex: 0,
+		};
+		_fetchTopics(props).then(results => {
+			expect(results).toEqual({});
+			done();
+		});
+	});
 });

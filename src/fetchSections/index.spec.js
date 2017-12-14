@@ -17,4 +17,17 @@ describe('fetchSections', () => {
 			done();
 		});
 	});
+	it('fetch without sections', done => {
+		const _fetchSections = resolve(fetchSections, {
+			fetchSection: () => {
+				return new Promise(pResolve => {
+					pResolve({});
+				});
+			},
+		});
+		_fetchSections({}).then(results => {
+			expect(results).toEqual({});
+			done();
+		});
+	});
 });
