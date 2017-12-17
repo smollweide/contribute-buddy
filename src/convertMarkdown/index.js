@@ -2,6 +2,7 @@
 const chalk = require('chalk');
 const resolve = require('../resolve');
 const convertMarkdownCodeToCli = require('../convertMarkdownCodeToCli');
+const convertMarkdownInlineCodeToCli = require('../convertMarkdownInlineCodeToCli');
 
 /*
 readmeData
@@ -79,7 +80,7 @@ const extractLinksFromReadme = readmeData => {
 	}
 
 	return {
-		text: convertMarkdownCodeToCli(text),
+		text: convertMarkdownInlineCodeToCli(convertMarkdownCodeToCli(text)),
 		links,
 	};
 };

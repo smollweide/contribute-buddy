@@ -41,6 +41,9 @@ const symbols = {
 		bottomLeft: ` ${chalk.gray.bgWhite('     │')}`,
 		bottomRight: `${chalk.bgWhite(' ')} `,
 	},
+	codeInline: {
+		msg: text => chalk.black.bgWhite(text),
+	},
 };
 
 module.exports = symbols;
