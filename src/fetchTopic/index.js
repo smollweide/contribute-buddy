@@ -19,7 +19,7 @@ function fetchTopic(
 	{ sections, sectionKey, sectionIndex },
 	{ topicKey, topicIndex },
 	originResolve,
-	{ _inquirer, _process, _open, _renderClear, _getUserStorage }
+	{ _inquirer, _process, _open, _renderClear, _getUserStorage, _console }
 ) {
 	const store = _getUserStorage();
 	const storeFiledName = `${sectionKey}/${topicKey}`;
@@ -45,13 +45,14 @@ function fetchTopic(
 			linksValues.push(link[key]);
 		});
 		const title = chalk.inverse.bold(`${sectionIndex + 1}.${topicIndex + 1}: ${topicKey}`);
+		_console.log(`${title}\n\n${sections[sectionKey].topics[topicKey].text}`);
 		_inquirer
 			.prompt([
 				{
 					type: 'list',
 					choices: linksTitles.concat(['Continue', 'Leave']),
 					name: topicKey,
-					message: `${title}\n\n${sections[sectionKey].topics[topicKey].text}\n\n`,
+					message: 'Please select',
 					default: 'Continue',
 					prefix: '',
 				},
@@ -82,5 +83,5 @@ function fetchTopic(
 	return new Promise(prompt);
 }
 
-module.exports = resolve(fetchTopic, { inquirer, process, open, renderClear, getUserStorage });
+module.exports = resolve(fetchTopic, { inquirer, process, open, renderClear, getUserStorage, console });
 module.exports.fetchTopic = fetchTopic;

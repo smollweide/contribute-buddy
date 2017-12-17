@@ -1,6 +1,7 @@
 'use strict';
 const chalk = require('chalk');
 const resolve = require('../resolve');
+const convertMarkdownCodeToCli = require('../convertMarkdownCodeToCli');
 
 /*
 readmeData
@@ -40,9 +41,21 @@ Text
 // 	},
 // };
 
+const stripMarkdownImage = data => {
+	// prettier-ignore
+	// eslint-disable-next-line
+	return data.replace(/\[!\[[^\]]*\]\([^\)]*\)\]\([^\)]*\)/g, '').trim();
+};
+
+const stripMarkdownLink = data => {
+	// prettier-ignore
+	// eslint-disable-next-line
+	return data.replace(/\[[^\]]*\]\([^\)]*\)/g, '').trim();
+};
+
 const getNameFromReadme = data => {
 	const spl = data.split('\n');
-	return spl[0].trim();
+	return stripMarkdownLink(stripMarkdownImage(spl[0].trim()));
 };
 const getTextFromReadme = data => {
 	const spl = data.split('\n');
@@ -66,7 +79,7 @@ const extractLinksFromReadme = readmeData => {
 	}
 
 	return {
-		text,
+		text: convertMarkdownCodeToCli(text),
 		links,
 	};
 };
@@ -110,3 +123,5 @@ function convertReadme2ReadmeDTO(readmeData) {
 
 module.exports = resolve(convertReadme2ReadmeDTO, {});
 module.exports.convertReadme2ReadmeDTO = convertReadme2ReadmeDTO;
+module.exports.stripMarkdownImage = stripMarkdownImage;
+module.exports.stripMarkdownLink = stripMarkdownLink;

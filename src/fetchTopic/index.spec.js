@@ -40,6 +40,9 @@ const propsTopic = {
 	sectionIndex: 0,
 };
 const open = () => {};
+const _console = {
+	log() {},
+};
 
 describe('fetchTopic', () => {
 	it('fetch', done => {
@@ -50,6 +53,7 @@ describe('fetchTopic', () => {
 			fetchTopics,
 			getUserStorage,
 			open,
+			console: _console,
 		});
 		_fetchTopic(props, propsTopic, undefined).then(results => {
 			expect(results['sectionA/topic1'].completed).toBe(true);
@@ -66,6 +70,7 @@ describe('fetchTopic', () => {
 			fetchTopics,
 			getUserStorage,
 			open,
+			console: _console,
 		});
 		_fetchTopic(props, propsTopic, () => {});
 	});
@@ -81,6 +86,7 @@ describe('fetchTopic', () => {
 				},
 			}),
 			open,
+			console: _console,
 		});
 		_fetchTopic(props, propsTopic, undefined).then(results => {
 			expect(results).toEqual({});
@@ -111,6 +117,7 @@ describe('fetchTopic', () => {
 				},
 			}),
 			open,
+			console: _console,
 		});
 		_fetchTopic(_props, propsTopic, undefined).then(results => {
 			expect(results['sectionA/topic1'].completed).toBe(true);
@@ -140,6 +147,7 @@ describe('fetchTopic', () => {
 			fetchTopics,
 			getUserStorage,
 			open,
+			console: _console,
 		});
 		_fetchTopic(props, propsTopic, undefined);
 	});
@@ -168,6 +176,7 @@ describe('fetchTopic', () => {
 				expect(href).toBe('linkAHref');
 				done();
 			},
+			console: _console,
 		});
 		_fetchTopic(props, propsTopic, undefined);
 	});

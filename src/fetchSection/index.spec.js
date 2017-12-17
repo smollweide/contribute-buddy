@@ -34,6 +34,9 @@ const props = {
 	sectionKey: 'sectionA',
 	sectionIndex: 0,
 };
+const _console = {
+	log() {},
+};
 
 describe('fetchSection', () => {
 	it('fetch', done => {
@@ -44,6 +47,7 @@ describe('fetchSection', () => {
 			fetchTopics,
 			getTopicsList,
 			getUserStorage,
+			console: _console,
 		});
 		_fetchSection
 			.bind(null, props, {})()
@@ -65,6 +69,7 @@ describe('fetchSection', () => {
 			getUserStorage: () => ({
 				readmes: { sectionA: { oldValue: JSON.stringify(props.sections[props.sectionKey]) } },
 			}),
+			console: _console,
 		});
 		_fetchSection
 			.bind(null, props, {})()
@@ -93,6 +98,7 @@ describe('fetchSection', () => {
 			fetchTopics,
 			getTopicsList,
 			getUserStorage,
+			console: _console,
 		});
 		_fetchSection.bind(null, props, {})();
 	});
@@ -117,6 +123,7 @@ describe('fetchSection', () => {
 			},
 			getTopicsList,
 			getUserStorage,
+			console: _console,
 		});
 		_fetchSection.bind(null, props, {})();
 	});

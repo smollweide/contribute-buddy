@@ -63,7 +63,18 @@
       "env"
     ]
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/*.{js}",
+      "src/*/*.{js}",
+      "!src/index.js",
+      "!src/resolve/index.js",
+      "!src/resolve/resolve-dependency.js",
+      "!src/symbols/index.js"
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "5.2.5",
     "@namics/eslint-config": "4.2.0",
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.6.1",
@@ -86,6 +97,7 @@
     "commander": "2.11.0",
     "execa": "0.8.0",
     "inquirer": "3.3.0",
+    "left-pad": "1.2.0",
     "make-dir": "1.0.0",
     "open": "0.0.5",
     "p-series": "1.0.0"

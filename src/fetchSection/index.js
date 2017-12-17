@@ -17,7 +17,7 @@ const getUserStorage = require('../getUserStorage');
 function fetchSection(
 	{ sections, sectionKey, sectionIndex },
 	results,
-	{ _process, _inquirer, _renderClear, _fetchTopics, _getTopicsList, _getUserStorage }
+	{ _process, _inquirer, _renderClear, _fetchTopics, _getTopicsList, _getUserStorage, _console }
 ) {
 	const store = _getUserStorage();
 
@@ -35,16 +35,14 @@ function fetchSection(
 	return new Promise(pResolve => {
 		_renderClear();
 		const title = chalk.inverse.bold(`${sectionIndex + 1}: ${sectionKey}`);
+		_console.log(`${title}\n${sections[sectionKey].text}\n${_getTopicsList(sections[sectionKey], sectionIndex)}`);
 		_inquirer
 			.prompt([
 				{
 					type: 'list',
 					choices: ['Continue', 'Leave'],
 					name: sectionKey,
-					message: `${title}\n${sections[sectionKey].text}\n${_getTopicsList(
-						sections[sectionKey],
-						sectionIndex
-					)}`,
+					message: 'Please select',
 					default: 'Continue',
 					prefix: '',
 				},
@@ -64,5 +62,13 @@ function fetchSection(
 	});
 }
 
-module.exports = resolve(fetchSection, { process, inquirer, renderClear, fetchTopics, getTopicsList, getUserStorage });
+module.exports = resolve(fetchSection, {
+	process,
+	inquirer,
+	renderClear,
+	fetchTopics,
+	getTopicsList,
+	getUserStorage,
+	console,
+});
 module.exports.fetchSection = fetchSection;
