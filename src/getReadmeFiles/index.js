@@ -6,13 +6,13 @@ const getConfig = require('../getConfig');
 const getConfigFilePath = require('../getConfigFilePath');
 const getCwd = require('../getCwd');
 const getLabel = require('../getLabel');
-const convertReadme2ReadmeDTO = require('../convertReadme2ReadmeDTO');
+const convertMarkdown = require('../convertMarkdown');
 
 /**
  * @param {Object} di - dependency injection
  * @returns {Object} config - returns the contributebuddy config
  **/
-function getReadmeFiles({ _getConfig, _getConfigFilePath, _getCwd, _convertReadme2ReadmeDTO, _path, _fs, _console }) {
+function getReadmeFiles({ _getConfig, _getConfigFilePath, _getCwd, _convertMarkdown, _path, _fs, _console }) {
 	const config = _getConfig();
 	const configFilePath = _getConfigFilePath();
 	const cwd = _getCwd();
@@ -28,14 +28,14 @@ function getReadmeFiles({ _getConfig, _getConfigFilePath, _getCwd, _convertReadm
 		readmeFilesData.push(`\n${_fs.readFileSync(_path.join(cwd, fileObj.path), 'utf8')}`);
 	});
 
-	return _convertReadme2ReadmeDTO(readmeFilesData.join(''));
+	return _convertMarkdown(readmeFilesData.join(''));
 }
 
 module.exports = resolve(getReadmeFiles, {
 	getConfig,
 	getConfigFilePath,
 	getCwd,
-	convertReadme2ReadmeDTO,
+	convertMarkdown,
 	fs,
 	path,
 	console,

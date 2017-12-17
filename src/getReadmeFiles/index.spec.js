@@ -13,7 +13,7 @@ const getConfig = () => ({
 });
 const getCwd = () => '/cwd/';
 const getConfigFilePath = () => '/cwd/.contributebuddy/contribute-buddy';
-const convertReadme2ReadmeDTO = data => data;
+const convertMarkdown = data => data;
 const fs = {
 	readFileSync() {
 		return '#readme\n\n##file';
@@ -34,7 +34,7 @@ describe('getReadmeFiles', () => {
 			getConfig,
 			getConfigFilePath,
 			getCwd,
-			convertReadme2ReadmeDTO,
+			convertMarkdown,
 			fs,
 			path,
 			console: _console,
@@ -50,7 +50,7 @@ describe('getReadmeFiles', () => {
 			getConfig: () => ({}),
 			getConfigFilePath,
 			getCwd,
-			convertReadme2ReadmeDTO,
+			convertMarkdown,
 			fs,
 			path,
 			console: _console,

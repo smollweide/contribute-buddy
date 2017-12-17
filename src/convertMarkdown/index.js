@@ -103,7 +103,7 @@ const getTopicDTOsFromReadme = topics => {
  * @param {Object} di - dependency injection
  * @returns {Object} config - returns the contributebuddy config
  **/
-function convertReadme2ReadmeDTO(readmeData) {
+function convertMarkdown(readmeData) {
 	const sections = readmeData.split('\n# ');
 	const out = { sections: {} };
 	sections.forEach(section => {
@@ -121,7 +121,7 @@ function convertReadme2ReadmeDTO(readmeData) {
 	return out;
 }
 
-module.exports = resolve(convertReadme2ReadmeDTO, {});
-module.exports.convertReadme2ReadmeDTO = convertReadme2ReadmeDTO;
+module.exports = resolve(convertMarkdown, {});
+module.exports.convertMarkdown = convertMarkdown;
 module.exports.stripMarkdownImage = stripMarkdownImage;
 module.exports.stripMarkdownLink = stripMarkdownLink;

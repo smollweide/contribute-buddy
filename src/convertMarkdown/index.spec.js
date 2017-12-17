@@ -1,7 +1,7 @@
 /* eslint quote-props: 0*/
-const { stripMarkdownImage, stripMarkdownLink, convertReadme2ReadmeDTO } = require('./index');
+const { stripMarkdownImage, stripMarkdownLink, convertMarkdown } = require('./index');
 
-describe('convertReadme2ReadmeDTO', () => {
+describe('convertMarkdown', () => {
 	it('convert', () => {
 		const readmeFileData = `
 # Title
@@ -13,7 +13,7 @@ Text
 # Title 2
 ## Topic 2 Title
 		`;
-		const res = convertReadme2ReadmeDTO(readmeFileData);
+		const res = convertMarkdown(readmeFileData);
 		expect(typeof res.sections.Title).toBe('object');
 		expect(typeof res.sections.Title.topics['Topic Title']).toBe('object');
 		expect(res.sections.Title.topics['Topic Title'].links.length).toBe(1);
@@ -27,7 +27,7 @@ Text
 ## Topic Title
 ** Bold Title **
 		`;
-		const res = convertReadme2ReadmeDTO(readmeFileData);
+		const res = convertMarkdown(readmeFileData);
 		expect(typeof res.sections.Title).toBe('object');
 	});
 	it('stripMarkdownImage', () => {
