@@ -50,7 +50,10 @@
     "collectCoverageFrom": [
       "src/*.{js}",
       "src/*/*.{js}",
-      "!src/index.js"
+      "!src/index.js",
+      "!src/resolve/index.js",
+      "!src/resolve/resolve-dependency.js",
+      "!src/symbols/index.js"
     ]
   },
   "config": {
@@ -63,16 +66,6 @@
       "env"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/*.{js}",
-      "src/*/*.{js}",
-      "!src/index.js",
-      "!src/resolve/index.js",
-      "!src/resolve/resolve-dependency.js",
-      "!src/symbols/index.js"
-    ]
-  },
   "devDependencies": {
     "@commitlint/cli": "5.2.5",
     "@namics/eslint-config": "4.2.0",
@@ -83,6 +76,7 @@
     "cross-env": "5.1.1",
     "cz-conventional-changelog": "2.1.0",
     "deep-copy": "1.4.0",
+    "eslint": "4.13.1",
     "husky": "0.14.3",
     "istanbul": "0.4.5",
     "jest": "21.2.1",
@@ -100,7 +94,9 @@
     "left-pad": "1.2.0",
     "make-dir": "1.0.0",
     "open": "0.0.5",
-    "p-series": "1.0.0"
+    "os-homedir": "1.0.2",
+    "p-series": "1.0.0",
+    "string-length": "2.0.0"
   },
   "scripts": {
     "commit": "git-cz",
