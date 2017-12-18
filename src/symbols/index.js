@@ -44,6 +44,9 @@ const symbols = {
 	codeInline: {
 		msg: text => chalk.black.bgWhite(text),
 	},
+	bold: {
+		msg: text => chalk.bold(text),
+	},
 };
 
 module.exports = symbols;

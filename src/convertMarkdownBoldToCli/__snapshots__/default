@@ -1,0 +1,3 @@
+We using [commitizen](https://github.com/commitizen/cz-cli) for commit styles. Please run `npm run commit` to commit your changes. Also the <b>commit messages</b> are used to build a clean and helpful changelog. Because of this please use well written commit messages.
+
+the <b>Component Name must be written in PascalCase</b>.
