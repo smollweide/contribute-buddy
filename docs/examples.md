@@ -1,5 +1,16 @@
 # Examples
 
+## Table
+| Git hook | npm script |
+| --- | --- |
+| applypatch-msg | applypatchmsg |
+| commit-msg | commitmsg |
+| post-applypatch | postapplypatch |
+| post-checkout | postcheckout |
+| post-commit | postcommit |
+| post-merge | postmerge |
+| post-receive | postreceive |
+
 ## Code
 
 Use the `i18n Helper` to translate strings.

@@ -47,6 +47,25 @@ const symbols = {
 	bold: {
 		msg: text => chalk.bold(text),
 	},
+	table: {
+		topStart: '┌',
+		topCell: '─',
+		topEnd: '┐',
+		bottomStart: '└',
+		bottomCell: '─',
+		bottomEnd: '┘',
+		headerStart: '│',
+		headerCell: text => ` ${text} `,
+		headerVSeparator: '│',
+		headerEnd: '│',
+		hSeparatorStart: '│',
+		hSeparatorCell: '─',
+		hSeparatorEnd: '│',
+		bodyStart: '│',
+		bodyCell: text => ` ${text} `,
+		bodyVSeparator: '│',
+		bodyEnd: '│',
+	},
 };
 
 module.exports = symbols;

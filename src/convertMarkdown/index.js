@@ -4,6 +4,7 @@ const resolve = require('../resolve');
 const convertMarkdownCodeToCli = require('../convertMarkdownCodeToCli');
 const convertMarkdownInlineCodeToCli = require('../convertMarkdownInlineCodeToCli');
 const convertMarkdownBoldToCli = require('../convertMarkdownBoldToCli');
+const convertMarkdownTableToCli = require('../convertMarkdownTableToCli');
 
 /*
 readmeData
@@ -81,7 +82,9 @@ const extractLinksFromReadme = readmeData => {
 	}
 
 	return {
-		text: convertMarkdownBoldToCli(convertMarkdownInlineCodeToCli(convertMarkdownCodeToCli(text))),
+		text: convertMarkdownTableToCli(
+			convertMarkdownBoldToCli(convertMarkdownInlineCodeToCli(convertMarkdownCodeToCli(text)))
+		),
 		links,
 	};
 };
