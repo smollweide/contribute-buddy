@@ -94,13 +94,16 @@
     "inquirer": "3.3.0",
     "left-pad": "1.2.0",
     "make-dir": "1.0.0",
+    "marked": "0.3.12",
+    "marked-terminal": "2.0.0",
     "open": "0.0.5",
     "os-homedir": "1.0.2",
     "p-series": "1.0.0",
     "string-length": "2.0.0"
   },
   "scripts": {
-    "commit": "git-cz",
+    "start": "src/index.js run",
+    "c": "git add . && git-cz",
     "precommit": "lint-staged && npm-run-all lint test check-coverage",
     "prebuild": "rimraf dist",
     "build": "node_modules/.bin/babel --out-dir dist --ignore *.spec.js src",

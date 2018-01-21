@@ -1,11 +1,8 @@
 'use strict';
 const chalk = require('chalk');
+const marked = require('marked');
+const TerminalRenderer = require('marked-terminal');
 const resolve = require('../resolve');
-const convertMarkdownCodeToCli = require('../convertMarkdownCodeToCli');
-const convertMarkdownInlineCodeToCli = require('../convertMarkdownInlineCodeToCli');
-const convertMarkdownBoldToCli = require('../convertMarkdownBoldToCli');
-const convertMarkdownTableToCli = require('../convertMarkdownTableToCli');
-
 /*
 readmeData
 
@@ -44,10 +41,16 @@ Text
 // 	},
 // };
 
+const stripMarkdownSimpleImage = data => {
+	// prettier-ignore
+	// eslint-disable-next-line
+	return data.replace(/![^\n]*/g, '').trim();
+};
+
 const stripMarkdownImage = data => {
 	// prettier-ignore
 	// eslint-disable-next-line
-	return data.replace(/\[!\[[^\]]*\]\([^\)]*\)\]\([^\)]*\)/g, '').trim();
+	return stripMarkdownSimpleImage(data.replace(/\[!\[[^\]]*\]\([^\)]*\)\]\([^\)]*\)/g, '').trim());
 };
 
 const stripMarkdownLink = data => {
@@ -76,15 +79,17 @@ const extractLinksFromReadme = readmeData => {
 
 	// eslint-disable-next-line
 	while ((results = reg.exec(readmeData)) !== null) {
-		links.push({ [results[1]]: results[2] });
+		links.push({ [results[1].replace(/^!\[/g, '')]: results[2] });
 		// eslint-disable-next-line
 		text = text.replace(`[${results[1]}](${results[2]})`, chalk.underline(results[1]));
 	}
 
+	marked.setOptions({
+		// Define custom renderer
+		renderer: new TerminalRenderer(),
+	});
 	return {
-		text: convertMarkdownTableToCli(
-			convertMarkdownBoldToCli(convertMarkdownInlineCodeToCli(convertMarkdownCodeToCli(text)))
-		),
+		text: marked(stripMarkdownImage(text)),
 		links,
 	};
 };
@@ -130,3 +135,4 @@ module.exports = resolve(convertMarkdown, {});
 module.exports.convertMarkdown = convertMarkdown;
 module.exports.stripMarkdownImage = stripMarkdownImage;
 module.exports.stripMarkdownLink = stripMarkdownLink;
+module.exports.extractLinksFromReadme = extractLinksFromReadme;
