@@ -23,7 +23,8 @@ const fetchUsername = () => new Promise(pResolve => pResolve({ username: 'userna
 const fetchEmail = () => new Promise(pResolve => pResolve({ email: 'email' }));
 const fetchNpmSaveExact = () => new Promise(pResolve => pResolve({ npmSaveExact: 'true' }));
 const fetchReadmes = () => new Promise(pResolve => pResolve({ readmes: {} }));
-const fetchComplete = () => new Promise(pResolve => pResolve);
+const fetchComplete = () => Promise.resolve();
+const fetchWelcome = () => Promise.resolve();
 
 describe('runCheck', () => {
 	it('default', done => {
@@ -54,6 +55,7 @@ describe('runCheck', () => {
 			fetchUsername,
 			fetchEmail,
 			fetchNpmSaveExact,
+			fetchWelcome,
 			fetchReadmes,
 			fetchComplete,
 		});
@@ -90,6 +92,7 @@ describe('runCheck', () => {
 			fetchUsername,
 			fetchEmail,
 			fetchNpmSaveExact,
+			fetchWelcome,
 			fetchReadmes: () =>
 				new Promise(pResolve =>
 					pResolve({
@@ -121,6 +124,7 @@ describe('runCheck', () => {
 			fetchEmail,
 			fetchNpmSaveExact,
 			fetchReadmes,
+			fetchWelcome,
 			fetchComplete() {
 				done();
 			},
