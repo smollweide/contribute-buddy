@@ -1,6 +1,6 @@
 'use strict';
 const inquirer = require('inquirer');
-const open = require('open');
+const open = require('opn');
 const chalk = require('chalk');
 const resolve = require('../resolve');
 const getLabel = require('../getLabel');
