@@ -16,7 +16,7 @@ function fetchNpmSaveExact(results, { _inquirer, _getNpmrc, _getConfig, _execa, 
 	const rc = _getNpmrc();
 	const config = _getConfig();
 
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		if (config.npm && config.npm.useSaveExact && rc['save-exact'] !== 'true') {
 			_inquirer
 				.prompt([

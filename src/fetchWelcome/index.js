@@ -17,7 +17,7 @@ function fetchWelcome(results, { _getPackage, _getUserStorage, _setUserStorage, 
 	const userStorage = _getUserStorage();
 	const packageData = _getPackage();
 
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		if (!userStorage.welcome) {
 			const lableOptions = {
 				name: userStorage.username,

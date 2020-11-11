@@ -14,7 +14,7 @@ const _process = {
 };
 const renderClear = () => {};
 const fetchTopics = () => {
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		pResolve({ a: {} });
 	});
 };
@@ -39,7 +39,7 @@ const _console = {
 };
 
 describe('fetchSection', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const _fetchSection = resolve(fetchSection, {
 			process: _process,
 			inquirer,
@@ -51,7 +51,7 @@ describe('fetchSection', () => {
 		});
 		_fetchSection
 			.bind(null, props, {})()
-			.then(results => {
+			.then((results) => {
 				expect(results.a).toEqual({});
 				expect(results.sectionA.completed).toBe(true);
 				expect(typeof results.sectionA.date).toBe('string');
@@ -59,7 +59,7 @@ describe('fetchSection', () => {
 				done();
 			});
 	});
-	it("prompt section just in case contributer didn't read it yet", done => {
+	it("prompt section just in case contributer didn't read it yet", (done) => {
 		const _fetchSection = resolve(fetchSection, {
 			process: _process,
 			inquirer,
@@ -73,12 +73,12 @@ describe('fetchSection', () => {
 		});
 		_fetchSection
 			.bind(null, props, {})()
-			.then(results => {
+			.then((results) => {
 				expect(results).toEqual({});
 				done();
 			});
 	});
-	it('select leave => process.exit', done => {
+	it('select leave => process.exit', (done) => {
 		const _inquirer = {
 			prompt() {
 				return _inquirer;
@@ -102,7 +102,7 @@ describe('fetchSection', () => {
 		});
 		_fetchSection.bind(null, props, {})();
 	});
-	it('select continue => fetchTopics', done => {
+	it('select continue => fetchTopics', (done) => {
 		const _inquirer = {
 			prompt() {
 				return _inquirer;
@@ -117,7 +117,7 @@ describe('fetchSection', () => {
 			renderClear,
 			fetchTopics() {
 				done();
-				return new Promise(pResolve => {
+				return new Promise((pResolve) => {
 					pResolve({});
 				});
 			},

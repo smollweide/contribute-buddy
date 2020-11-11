@@ -27,12 +27,12 @@ function fetchSection(
 		store.readmes[sectionKey] &&
 		store.readmes[sectionKey].oldValue === JSON.stringify(sections[sectionKey])
 	) {
-		return new Promise(pResolve => {
+		return new Promise((pResolve) => {
 			pResolve({});
 		});
 	}
 
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		_renderClear();
 		const title = chalk.inverse.bold(`${sectionIndex + 1}: ${sectionKey}`);
 		_console.log(`${title}\n${sections[sectionKey].text}\n${_getTopicsList(sections[sectionKey], sectionIndex)}`);
@@ -47,12 +47,12 @@ function fetchSection(
 					prefix: '',
 				},
 			])
-			.then(answers => {
+			.then((answers) => {
 				if (answers[sectionKey] !== 'Continue') {
 					_process.exit();
 				}
 				_fetchTopics({ sections, sectionKey, sectionIndex })
-					.then(topicsAnswers =>
+					.then((topicsAnswers) =>
 						pResolve(
 							Object.assign({ [sectionKey]: getCompleteObject(sections[sectionKey]) }, topicsAnswers)
 						)

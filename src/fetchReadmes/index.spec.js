@@ -2,7 +2,7 @@ const resolve = require('../resolve');
 const { fetchReadmes } = require('./index');
 
 describe('fetchReadmes', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const _fetchReadmes = resolve(fetchReadmes, {
 			getReadmeFiles: () => ({
 				sections: {
@@ -11,26 +11,26 @@ describe('fetchReadmes', () => {
 				},
 			}),
 			fetchSections: () => {
-				return new Promise(pResolve => {
+				return new Promise((pResolve) => {
 					pResolve({});
 				});
 			},
 		});
-		_fetchReadmes({}).then(results => {
+		_fetchReadmes({}).then((results) => {
 			expect(results).toEqual({ readmes: {} });
 			done();
 		});
 	});
-	it('no readme files', done => {
+	it('no readme files', (done) => {
 		const _fetchReadmes = resolve(fetchReadmes, {
 			getReadmeFiles: () => ({}),
 			fetchSections: () => {
-				return new Promise(pResolve => {
+				return new Promise((pResolve) => {
 					pResolve({});
 				});
 			},
 		});
-		_fetchReadmes({}).then(results => {
+		_fetchReadmes({}).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});

@@ -41,36 +41,36 @@ Text
 // 	},
 // };
 
-const stripMarkdownSimpleImage = data => {
+const stripMarkdownSimpleImage = (data) => {
 	// prettier-ignore
 	// eslint-disable-next-line
 	return data.replace(/![^\n]*/g, '').trim();
 };
 
-const stripMarkdownImage = data => {
+const stripMarkdownImage = (data) => {
 	// prettier-ignore
 	// eslint-disable-next-line
 	return stripMarkdownSimpleImage(data.replace(/\[!\[[^\]]*\]\([^\)]*\)\]\([^\)]*\)/g, '').trim());
 };
 
-const stripMarkdownLink = data => {
+const stripMarkdownLink = (data) => {
 	// prettier-ignore
 	// eslint-disable-next-line
 	return data.replace(/\[[^\]]*\]\([^\)]*\)/g, '').trim();
 };
 
-const getNameFromReadme = data => {
+const getNameFromReadme = (data) => {
 	const spl = data.split('\n');
 	return stripMarkdownLink(stripMarkdownImage(spl[0].trim()));
 };
-const getTextFromReadme = data => {
+const getTextFromReadme = (data) => {
 	const spl = data.split('\n');
 	if (spl.length < 2) {
 		return '';
 	}
 	return spl.slice(1, spl.length).join('\n');
 };
-const extractLinksFromReadme = readmeData => {
+const extractLinksFromReadme = (readmeData) => {
 	// eslint-disable-next-line
 	const reg = /\[([^\]]*)\]\(([^\)]*)\)/g;
 	let results;
@@ -94,15 +94,15 @@ const extractLinksFromReadme = readmeData => {
 	};
 };
 
-const getTopicDTOFromReadme = topic => {
+const getTopicDTOFromReadme = (topic) => {
 	return {
 		[getNameFromReadme(topic)]: extractLinksFromReadme(getTextFromReadme(topic)),
 	};
 };
 
-const getTopicDTOsFromReadme = topics => {
+const getTopicDTOsFromReadme = (topics) => {
 	const out = {};
-	topics.forEach(topic => {
+	topics.forEach((topic) => {
 		Object.assign(out, getTopicDTOFromReadme(topic));
 	});
 	return out;
@@ -116,7 +116,7 @@ const getTopicDTOsFromReadme = topics => {
 function convertMarkdown(readmeData) {
 	const sections = readmeData.split('\n# ');
 	const out = { sections: {} };
-	sections.forEach(section => {
+	sections.forEach((section) => {
 		if (section === '') {
 			return;
 		}

@@ -15,7 +15,7 @@ const props = {};
 const open = () => {};
 
 describe('fetchInitComplete', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const _fetchInitComplete = resolve(fetchInitComplete, {
 			inquirer,
 			renderClear,
@@ -26,7 +26,7 @@ describe('fetchInitComplete', () => {
 			done();
 		});
 	});
-	it('prompt', done => {
+	it('prompt', (done) => {
 		const _inquirer = {
 			prompt() {
 				done();
@@ -53,7 +53,7 @@ describe('fetchInitComplete', () => {
 		});
 		_fetchInitComplete(props, () => {}, undefined);
 	});
-	it('nothing completed', done => {
+	it('nothing completed', (done) => {
 		const _fetchInitComplete = resolve(fetchInitComplete, {
 			inquirer,
 			renderClear,
@@ -64,7 +64,7 @@ describe('fetchInitComplete', () => {
 			done();
 		});
 	});
-	it('select link', done => {
+	it('select link', (done) => {
 		let counter = 0;
 		const _inquirer = {
 			prompt() {
@@ -89,7 +89,7 @@ describe('fetchInitComplete', () => {
 		});
 		_fetchInitComplete(props, undefined, undefined);
 	});
-	it('select "open config"', done => {
+	it('select "open config"', (done) => {
 		let counter = 0;
 		const _inquirer = {
 			prompt() {

@@ -8,7 +8,7 @@ const getPackage = () => ({
 });
 
 describe('packageAppendScript', () => {
-	it('script exist already', done => {
+	it('script exist already', (done) => {
 		const _packageAppendScript = resolve(packageAppendScript, {
 			getPackage,
 			getPackageFilePath: () => '/package.json',
@@ -25,7 +25,7 @@ describe('packageAppendScript', () => {
 		});
 		_packageAppendScript('prestart', 'contribute-buddy run');
 	});
-	it("script don't exist yet", done => {
+	it("script don't exist yet", (done) => {
 		const _packageAppendScript = resolve(packageAppendScript, {
 			getPackage: () => ({}),
 			getPackageFilePath: () => '/package.json',
@@ -42,7 +42,7 @@ describe('packageAppendScript', () => {
 		});
 		_packageAppendScript('prestart', 'contribute-buddy run');
 	});
-	it("scriptName don't exist yet", done => {
+	it("scriptName don't exist yet", (done) => {
 		const _packageAppendScript = resolve(packageAppendScript, {
 			getPackage: () => ({ scripts: {} }),
 			getPackageFilePath: () => '/package.json',
@@ -59,7 +59,7 @@ describe('packageAppendScript', () => {
 		});
 		_packageAppendScript('prestart', 'contribute-buddy run');
 	});
-	it('same scriptName exist already', done => {
+	it('same scriptName exist already', (done) => {
 		const _packageAppendScript = resolve(packageAppendScript, {
 			getPackage: () => ({ scripts: { prestart: 'contribute-buddy run' } }),
 			getPackageFilePath: () => '/package.json',

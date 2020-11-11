@@ -4,8 +4,8 @@ const { runInit } = require('./index');
 
 const renderClear = () => {};
 const fetchInitReadmes = () =>
-	new Promise(pResolve => pResolve({ selectedReadmeFiles: ['/README.md', '/docs/guide.md'] }));
-const fetchInitComplete = () => new Promise(pResolve => pResolve());
+	new Promise((pResolve) => pResolve({ selectedReadmeFiles: ['/README.md', '/docs/guide.md'] }));
+const fetchInitComplete = () => new Promise((pResolve) => pResolve());
 const getCwd = () => '/cwd';
 const getPwd = () => '/pwd';
 const makeDir = {
@@ -23,7 +23,7 @@ const fs = {
 };
 
 describe('runInit', () => {
-	it('default', done => {
+	it('default', (done) => {
 		const _runInit = resolve(runInit, {
 			getCwd,
 			getPwd,

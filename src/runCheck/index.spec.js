@@ -19,15 +19,15 @@ const getUserStorage = () => ({
 	},
 });
 const renderClear = () => {};
-const fetchUsername = () => new Promise(pResolve => pResolve({ username: 'username' }));
-const fetchEmail = () => new Promise(pResolve => pResolve({ email: 'email' }));
-const fetchNpmSaveExact = () => new Promise(pResolve => pResolve({ npmSaveExact: 'true' }));
-const fetchReadmes = () => new Promise(pResolve => pResolve({ readmes: {} }));
+const fetchUsername = () => new Promise((pResolve) => pResolve({ username: 'username' }));
+const fetchEmail = () => new Promise((pResolve) => pResolve({ email: 'email' }));
+const fetchNpmSaveExact = () => new Promise((pResolve) => pResolve({ npmSaveExact: 'true' }));
+const fetchReadmes = () => new Promise((pResolve) => pResolve({ readmes: {} }));
 const fetchComplete = () => Promise.resolve();
 const fetchWelcome = () => Promise.resolve();
 
 describe('runCheck', () => {
-	it('default', done => {
+	it('default', (done) => {
 		const _runCheck = resolve(runCheck, {
 			getUserStorage,
 			setUserStorage(store) {
@@ -61,7 +61,7 @@ describe('runCheck', () => {
 		});
 		_runCheck();
 	});
-	it('add readmes', done => {
+	it('add readmes', (done) => {
 		const _runCheck = resolve(runCheck, {
 			getUserStorage: () => ({
 				username: 'c-b',
@@ -94,7 +94,7 @@ describe('runCheck', () => {
 			fetchNpmSaveExact,
 			fetchWelcome,
 			fetchReadmes: () =>
-				new Promise(pResolve =>
+				new Promise((pResolve) =>
 					pResolve({
 						readmes: {
 							'Contribute buddy': {
@@ -115,7 +115,7 @@ describe('runCheck', () => {
 		});
 		_runCheck();
 	});
-	it('fetch complete', done => {
+	it('fetch complete', (done) => {
 		const _runCheck = resolve(runCheck, {
 			getUserStorage,
 			setUserStorage() {},

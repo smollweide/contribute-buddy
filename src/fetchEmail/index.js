@@ -13,7 +13,7 @@ const setUserStorage = require('../setUserStorage');
 function fetchEmail(results, { _getUserStorage, _setUserStorage, _console, _inquirer }) {
 	const userStorage = _getUserStorage();
 
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		if (!userStorage.email) {
 			// TODO validate answer
 			_inquirer

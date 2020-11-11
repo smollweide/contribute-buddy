@@ -13,7 +13,7 @@ const setUserStorage = require('../setUserStorage');
 function fetchUsername(results, { _inquirer, _getUserStorage, _setUserStorage, _console }) {
 	const userStorage = _getUserStorage();
 
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		if (!userStorage.username) {
 			// TODO validate answer
 			_inquirer

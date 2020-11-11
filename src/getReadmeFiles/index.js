@@ -23,7 +23,7 @@ function getReadmeFiles({ _getConfig, _getConfigFilePath, _getCwd, _convertMarkd
 		return {};
 	}
 
-	config.files.forEach(fileObj => {
+	config.files.forEach((fileObj) => {
 		// add leading empty line to make sure split will work as expected
 		readmeFilesData.push(`\n${_fs.readFileSync(_path.join(cwd, fileObj.path), 'utf8')}`);
 	});

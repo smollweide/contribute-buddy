@@ -5,4 +5,7 @@ const { runCommander } = require('./commander');
 const runInit = require('./runInit');
 const runCheck = require('./runCheck');
 
-runCommander(() => runInit(), () => runCheck());
+runCommander(
+	() => runInit(),
+	() => runCheck()
+);

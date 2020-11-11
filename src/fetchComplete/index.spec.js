@@ -28,7 +28,7 @@ const props = {
 const open = () => {};
 
 describe('fetchComplete', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const _fetchComplete = resolve(fetchComplete, {
 			inquirer,
 			renderClear,
@@ -39,7 +39,7 @@ describe('fetchComplete', () => {
 			done();
 		});
 	});
-	it('prompt', done => {
+	it('prompt', (done) => {
 		const _inquirer = {
 			prompt() {
 				done();
@@ -66,7 +66,7 @@ describe('fetchComplete', () => {
 		});
 		_fetchComplete(props, () => {}, undefined);
 	});
-	it('nothing completed', done => {
+	it('nothing completed', (done) => {
 		const _fetchComplete = resolve(fetchComplete, {
 			inquirer,
 			renderClear,
@@ -77,7 +77,7 @@ describe('fetchComplete', () => {
 			done();
 		});
 	});
-	it('no links defined in config', done => {
+	it('no links defined in config', (done) => {
 		const _fetchComplete = resolve(fetchComplete, {
 			inquirer,
 			renderClear,
@@ -88,7 +88,7 @@ describe('fetchComplete', () => {
 			done();
 		});
 	});
-	it('select link', done => {
+	it('select link', (done) => {
 		let counter = 0;
 		const _inquirer = {
 			prompt() {

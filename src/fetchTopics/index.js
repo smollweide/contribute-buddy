@@ -9,7 +9,7 @@ const fetchTopic = require('../fetchTopic');
  * @returns {Object} config - returns the contributebuddy config
  **/
 function fetchTopics({ sections, sectionKey, sectionIndex }, { _fetchTopic }) {
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		// in case of there are no topics in this section
 		if (Object.keys(sections[sectionKey].topics).length <= 0) {
 			pResolve({});
@@ -20,7 +20,7 @@ function fetchTopics({ sections, sectionKey, sectionIndex }, { _fetchTopic }) {
 			Object.keys(sections[sectionKey].topics).map((topicKey, topicIndex) =>
 				_fetchTopic.bind(null, { sections, sectionKey, sectionIndex }, { topicKey, topicIndex })
 			)
-		).then(topicsResults => pResolve(Object.assign(...topicsResults)));
+		).then((topicsResults) => pResolve(Object.assign(...topicsResults)));
 	});
 }
 

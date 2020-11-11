@@ -12,13 +12,13 @@ function fetchReadmes(oldResults, { _getReadmeFiles, _fetchSections }) {
 	const readmeFilesDTOs = _getReadmeFiles();
 
 	if (!readmeFilesDTOs || !readmeFilesDTOs.sections || Object.keys(readmeFilesDTOs.sections).length < 1) {
-		return new Promise(pResolve => {
+		return new Promise((pResolve) => {
 			pResolve({});
 		});
 	}
 
-	return new Promise(pResolve => {
-		_fetchSections(readmeFilesDTOs.sections).then(results => {
+	return new Promise((pResolve) => {
+		_fetchSections(readmeFilesDTOs.sections).then((results) => {
 			pResolve({ readmes: results });
 		});
 	});

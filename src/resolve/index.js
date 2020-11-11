@@ -8,7 +8,7 @@ const resolveDependency = require('./resolve-dependency');
  **/
 function resolve(func, dependencies) {
 	const out = {};
-	Object.keys(dependencies).forEach(dependencyName => {
+	Object.keys(dependencies).forEach((dependencyName) => {
 		Object.assign(out, resolveDependency(dependencies, dependencyName, dependencies[dependencyName]));
 	});
 	return (...args) => {

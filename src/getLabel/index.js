@@ -17,7 +17,7 @@ function getLabel(key, replacement, { _getConfig }) {
 
 	let label = config.labels[key];
 
-	Object.keys(replacement).forEach(replacementKey => {
+	Object.keys(replacement).forEach((replacementKey) => {
 		label = label.replace(new RegExp(`{${replacementKey}}`, 'g'), replacement[replacementKey]);
 	});
 

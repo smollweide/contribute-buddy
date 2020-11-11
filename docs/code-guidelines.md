@@ -12,6 +12,3 @@ We using [prettier](https://github.com/prettier/prettier) for code formatting. Y
 ## Unit Tests
 We using [jest](https://github.com/facebook/jest) for unit testing and the coverage should be higher than 90%.
 The coverage will be reported and checked before commit.
-
-## Commit style
-We using [commitizen](https://github.com/commitizen/cz-cli) for commit styles. Please run `npm run commit` to commit your changes. Also the commit messages are used to build a clean and helpful changelog. Because of this please use well written commit messages.

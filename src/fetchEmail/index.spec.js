@@ -2,7 +2,7 @@ const resolve = require('../resolve');
 const { fetchEmail } = require('./index');
 
 describe('fetchEmail', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -15,12 +15,12 @@ describe('fetchEmail', () => {
 			console: { log() {} },
 			inquirer,
 		});
-		_fetchEmail({}).then(results => {
+		_fetchEmail({}).then((results) => {
 			expect(results).toEqual({ email: 'user-entered@mail.com' });
 			done();
 		});
 	});
-	it('store result in user storage', done => {
+	it('store result in user storage', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -37,7 +37,7 @@ describe('fetchEmail', () => {
 		});
 		_fetchEmail({});
 	});
-	it('log', done => {
+	it('log', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -57,7 +57,7 @@ describe('fetchEmail', () => {
 		});
 		_fetchEmail({});
 	});
-	it('email already set', done => {
+	it('email already set', (done) => {
 		const _fetchEmail = resolve(fetchEmail, {
 			getUserStorage: () => ({
 				email: 'example@mail.com',
@@ -65,7 +65,7 @@ describe('fetchEmail', () => {
 			setUserStorage() {},
 			console: { log() {} },
 		});
-		_fetchEmail({}).then(results => {
+		_fetchEmail({}).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});

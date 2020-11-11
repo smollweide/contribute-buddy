@@ -38,7 +38,7 @@ function fetchInitComplete(results, originResolve, oldResults, { _renderClear, _
 		linksValues.push(href);
 	});
 
-	const prompt = pResolve => {
+	const prompt = (pResolve) => {
 		_renderClear();
 
 		_inquirer

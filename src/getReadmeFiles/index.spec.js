@@ -13,7 +13,7 @@ const getConfig = () => ({
 });
 const getCwd = () => '/cwd/';
 const getConfigFilePath = () => '/cwd/.contributebuddy/contribute-buddy';
-const convertMarkdown = data => data;
+const convertMarkdown = (data) => data;
 const fs = {
 	readFileSync() {
 		return '#readme\n\n##file';
@@ -39,11 +39,9 @@ describe('getReadmeFiles', () => {
 			path,
 			console: _console,
 		});
-		expect(
-			_getReadmeFiles()
-				.split('\n')
-				.join('<br/>')
-		).toBe('<br/>#readme<br/><br/>##file<br/>#readme<br/><br/>##file');
+		expect(_getReadmeFiles().split('\n').join('<br/>')).toBe(
+			'<br/>#readme<br/><br/>##file<br/>#readme<br/><br/>##file'
+		);
 	});
 	it('no files defined in config', () => {
 		const _getReadmeFiles = resolve(getReadmeFiles, {

@@ -30,7 +30,7 @@ const setUserStorage = () => {};
 const renderClear = () => {};
 
 describe('fetchWelcome', () => {
-	it('welcome already defined', done => {
+	it('welcome already defined', (done) => {
 		const _fetchWelcome = resolve(fetchWelcome, {
 			inquirer,
 			process: _process,
@@ -39,12 +39,12 @@ describe('fetchWelcome', () => {
 			getPackage,
 			renderClear,
 		});
-		_fetchWelcome({}).then(results => {
+		_fetchWelcome({}).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});
 	});
-	it('welcome not defined yet', done => {
+	it('welcome not defined yet', (done) => {
 		const _fetchWelcome = resolve(fetchWelcome, {
 			inquirer,
 			process: _process,
@@ -53,12 +53,12 @@ describe('fetchWelcome', () => {
 			getPackage,
 			renderClear,
 		});
-		_fetchWelcome({}).then(results => {
+		_fetchWelcome({}).then((results) => {
 			expect(results).toEqual({ welcome: true });
 			done();
 		});
 	});
-	it('select leave => process.exit', done => {
+	it('select leave => process.exit', (done) => {
 		const _fetchWelcome = resolve(fetchWelcome, {
 			inquirer: inquirerLeave,
 			process: {

@@ -7,18 +7,24 @@ const packageData = {
 };
 
 describe('commander', () => {
-	it('init', done => {
+	it('init', (done) => {
 		resolve(_runCommander, {
 			program,
 			process: { argv: ['/usr/local/bin/node', '/Users/smollweide/projects/contribute-buddy/src', 'init'] },
 			packageData,
-		})(() => done(), () => {});
+		})(
+			() => done(),
+			() => {}
+		);
 	});
-	it('run', done => {
+	it('run', (done) => {
 		resolve(_runCommander, {
 			program,
 			process: { argv: ['/usr/local/bin/node', '/Users/smollweide/projects/contribute-buddy/src', 'run'] },
 			packageData,
-		})(() => {}, () => done());
+		})(
+			() => {},
+			() => done()
+		);
 	});
 });

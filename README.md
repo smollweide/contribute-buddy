@@ -23,7 +23,6 @@ Also the `.contributebuddy` directory will be added.
 Contribute buddy collect all readme files in the project and split them into sections and topics by using the `h1` and `h2` headlines. These sections and topics will be displayed in the cli before start (and after install) if you didn't read them before and nothing had changed. The reading history will be stored in your filesystem (user directory).
 
 ## Shields
-[![coverage status](https://coveralls.io/repos/github/smollweide/contribute-buddy/badge.svg?branch=master)](https://coveralls.io/github/smollweide/contribute-buddy?branch=master)
 [![npm](https://img.shields.io/npm/v/contribute-buddy.svg)](http://npm.im/contribute-buddy)
 [![downloads](https://img.shields.io/npm/dm/contribute-buddy.svg)](https://npm-stat.com/charts.html?package=contribute-buddy)
 [![MIT License](https://img.shields.io/npm/l/contribute-buddy.svg)](http://opensource.org/licenses/MIT)

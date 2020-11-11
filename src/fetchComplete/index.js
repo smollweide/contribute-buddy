@@ -27,7 +27,7 @@ function fetchComplete(results, originResolve, oldResults, { _getConfig, _render
 		linksValues.push(href);
 	});
 
-	const prompt = pResolve => {
+	const prompt = (pResolve) => {
 		if (Object.keys(results).length <= 1 && Object.keys(results.readmes).length < 1) {
 			pResolve();
 			return;

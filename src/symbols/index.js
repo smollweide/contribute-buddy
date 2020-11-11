@@ -3,10 +3,10 @@ const leftPad = require('left-pad');
 
 const symbols = {
 	default: {
-		title: text => chalk.blue.bgWhite.bold(text),
-		titleStopped: text => chalk.red.bgWhite.bold(text),
-		msg: text => text,
-		error: text => chalk.red(text),
+		title: (text) => chalk.blue.bgWhite.bold(text),
+		titleStopped: (text) => chalk.red.bgWhite.bold(text),
+		msg: (text) => text,
+		error: (text) => chalk.red(text),
 		titleSpace: chalk.bgWhite(' '),
 		topLeft: chalk.white('┌'),
 		topRight: chalk.white('┐'),
@@ -17,21 +17,19 @@ const symbols = {
 		bottomRight: chalk.white('┘'),
 	},
 	code: {
-		title: text => chalk.white.bgBlackBright.bold(text),
-		titleStopped: text => chalk.red.bgBlackBright.bold(text),
-		msg: text => chalk.black.bgWhite(text),
-		error: text => chalk.red.bgWhite(text),
+		title: (text) => chalk.white.bgBlackBright.bold(text),
+		titleStopped: (text) => chalk.red.bgBlackBright.bold(text),
+		msg: (text) => chalk.black.bgWhite(text),
+		error: (text) => chalk.red.bgWhite(text),
 		titleSpace: chalk.bgBlackBright(' '),
 		topLeft: ` ${chalk.bgBlackBright(' ')}`,
 		topRight: `${chalk.bgBlackBright(' ')} `,
-		contentLeft: num => {
+		contentLeft: (num) => {
 			let numOut;
 			if (!num || num < 1) {
 				numOut = '   ';
 			} else {
-				numOut = leftPad(num, 3, 0)
-					.replace(/^00/, '  ')
-					.replace(/^0/, ' ');
+				numOut = leftPad(num, 3, 0).replace(/^00/, '  ').replace(/^0/, ' ');
 			}
 			return ` ${chalk.gray.bgWhite(` ${numOut} │`)}`;
 		},
@@ -42,10 +40,10 @@ const symbols = {
 		bottomRight: `${chalk.bgWhite(' ')} `,
 	},
 	codeInline: {
-		msg: text => chalk.black.bgWhite(text),
+		msg: (text) => chalk.black.bgWhite(text),
 	},
 	bold: {
-		msg: text => chalk.bold(text),
+		msg: (text) => chalk.bold(text),
 	},
 	table: {
 		topStart: '┌',
@@ -55,14 +53,14 @@ const symbols = {
 		bottomCell: '─',
 		bottomEnd: '┘',
 		headerStart: '│',
-		headerCell: text => ` ${text} `,
+		headerCell: (text) => ` ${text} `,
 		headerVSeparator: '│',
 		headerEnd: '│',
 		hSeparatorStart: '│',
 		hSeparatorCell: '─',
 		hSeparatorEnd: '│',
 		bodyStart: '│',
-		bodyCell: text => ` ${text} `,
+		bodyCell: (text) => ` ${text} `,
 		bodyVSeparator: '│',
 		bodyEnd: '│',
 	},

@@ -12,15 +12,9 @@ const packageData = require('../../package.json');
 function runCommander(runInit, runCheck, { _program, _process, _packageData }) {
 	_program.version(_packageData.version);
 
-	_program
-		.command('init')
-		.description('Init contribute buddy on your project')
-		.action(runInit);
+	_program.command('init').description('Init contribute buddy on your project').action(runInit);
 
-	_program
-		.command('run')
-		.description('Runs contribute buddys guided tour')
-		.action(runCheck);
+	_program.command('run').description('Runs contribute buddys guided tour').action(runCheck);
 
 	_program.parse(_process.argv);
 }

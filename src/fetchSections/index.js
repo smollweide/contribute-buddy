@@ -9,7 +9,7 @@ const fetchSection = require('../fetchSection');
  * @returns {Object} config - returns the contributebuddy config
  **/
 function fetchSections(sections, { _fetchSection }) {
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		// in case of there are sections
 		if (Object.keys(sections).length <= 0) {
 			pResolve({});
@@ -20,7 +20,7 @@ function fetchSections(sections, { _fetchSection }) {
 			Object.keys(sections).map((sectionKey, sectionIndex) =>
 				_fetchSection.bind(null, { sections, sectionKey, sectionIndex })
 			)
-		).then(sectionsResults => pResolve(Object.assign(...sectionsResults)));
+		).then((sectionsResults) => pResolve(Object.assign(...sectionsResults)));
 	});
 }
 

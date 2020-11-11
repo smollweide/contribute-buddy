@@ -13,7 +13,7 @@ const path = {
 const getUserStorageFilePath = () => 'path/userstorage/user.json';
 
 describe('setUserStorage', () => {
-	it('default', done => {
+	it('default', (done) => {
 		const _setUserStorage = resolve(setUserStorage, {
 			makeDir,
 			fs: {

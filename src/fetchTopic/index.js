@@ -30,16 +30,16 @@ function fetchTopic(
 		store.readmes[storeFiledName] &&
 		store.readmes[storeFiledName].oldValue === JSON.stringify(sections[sectionKey].topics[topicKey])
 	) {
-		return new Promise(pResolve => {
+		return new Promise((pResolve) => {
 			pResolve({});
 		});
 	}
 
-	const prompt = pResolve => {
+	const prompt = (pResolve) => {
 		_renderClear();
 		const linksTitles = [];
 		const linksValues = [];
-		(sections[sectionKey].topics[topicKey].links || []).forEach(link => {
+		(sections[sectionKey].topics[topicKey].links || []).forEach((link) => {
 			const key = Object.keys(link)[0];
 			linksTitles.push(getLabel('link', { label: key }));
 			linksValues.push(link[key]);
@@ -57,7 +57,7 @@ function fetchTopic(
 					prefix: '',
 				},
 			])
-			.then(answers => {
+			.then((answers) => {
 				if (answers[topicKey] === 'Leave') {
 					_process.exit();
 				}
@@ -75,7 +75,7 @@ function fetchTopic(
 	};
 
 	if (originResolve) {
-		return new Promise(pResolve => {
+		return new Promise((pResolve) => {
 			pResolve({});
 		});
 	}

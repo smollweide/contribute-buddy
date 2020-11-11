@@ -2,10 +2,10 @@ const resolve = require('../resolve');
 const { fetchTopics } = require('./index');
 
 describe('fetchTopics', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const _fetchTopics = resolve(fetchTopics, {
 			fetchTopic() {
-				return new Promise(pResolve => {
+				return new Promise((pResolve) => {
 					pResolve({ a: {} });
 				});
 			},
@@ -21,15 +21,15 @@ describe('fetchTopics', () => {
 			sectionKey: 'section1',
 			sectionIndex: 0,
 		};
-		_fetchTopics(props).then(results => {
+		_fetchTopics(props).then((results) => {
 			expect(results).toEqual({ a: {} });
 			done();
 		});
 	});
-	it('fetch without topics', done => {
+	it('fetch without topics', (done) => {
 		const _fetchTopics = resolve(fetchTopics, {
 			fetchTopic() {
-				return new Promise(pResolve => {
+				return new Promise((pResolve) => {
 					pResolve({ a: {} });
 				});
 			},
@@ -43,7 +43,7 @@ describe('fetchTopics', () => {
 			sectionKey: 'section1',
 			sectionIndex: 0,
 		};
-		_fetchTopics(props).then(results => {
+		_fetchTopics(props).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});

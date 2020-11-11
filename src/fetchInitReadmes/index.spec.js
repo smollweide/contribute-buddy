@@ -22,7 +22,7 @@ const inquirer = {
 const props = {};
 
 describe('fetchInitReadmes', () => {
-	it('prompt readme files', done => {
+	it('prompt readme files', (done) => {
 		const _fetchInitReadmes = resolve(fetchInitReadmes, {
 			renderClear,
 			getCwd,
@@ -40,7 +40,7 @@ describe('fetchInitReadmes', () => {
 		});
 		_fetchInitReadmes(props);
 	});
-	it('result is correct', done => {
+	it('result is correct', (done) => {
 		const _fetchInitReadmes = resolve(fetchInitReadmes, {
 			renderClear,
 			getCwd,
@@ -48,7 +48,7 @@ describe('fetchInitReadmes', () => {
 			glob,
 			inquirer,
 		});
-		_fetchInitReadmes(props).then(result => {
+		_fetchInitReadmes(props).then((result) => {
 			expect(result).toEqual({ selectedReadmeFiles: [{ path: '/README.md' }, { path: '/docs/guide.md' }] });
 			done();
 		});

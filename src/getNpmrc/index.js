@@ -15,7 +15,7 @@ function getNpmrc({ _process, _execa }) {
 			rcraw = cleanWinCmd(rcraw);
 		}
 
-		rcraw.split('\n').forEach(value => {
+		rcraw.split('\n').forEach((value) => {
 			const valueSpl = value.split('=');
 			if (valueSpl.length === 2) {
 				rc[valueSpl[0].trim()] = valueSpl[1].trim();

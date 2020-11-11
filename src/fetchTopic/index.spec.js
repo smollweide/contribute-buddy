@@ -14,7 +14,7 @@ const _process = {
 };
 const renderClear = () => {};
 const fetchTopics = () => {
-	return new Promise(pResolve => {
+	return new Promise((pResolve) => {
 		pResolve({ a: {} });
 	});
 };
@@ -45,7 +45,7 @@ const _console = {
 };
 
 describe('fetchTopic', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const _fetchTopic = resolve(fetchTopic, {
 			process: _process,
 			inquirer,
@@ -55,7 +55,7 @@ describe('fetchTopic', () => {
 			open,
 			console: _console,
 		});
-		_fetchTopic(props, propsTopic, undefined).then(results => {
+		_fetchTopic(props, propsTopic, undefined).then((results) => {
 			expect(results['sectionA/topic1'].completed).toBe(true);
 			expect(typeof results['sectionA/topic1'].date).toBe('string');
 			expect(results['sectionA/topic1'].oldValue).toBe('{"links":[{"linkA":"linkAHref"}]}');
@@ -74,7 +74,7 @@ describe('fetchTopic', () => {
 		});
 		_fetchTopic(props, propsTopic, () => {});
 	});
-	it("prompt topic just in case contributer didn't read it yet", done => {
+	it("prompt topic just in case contributer didn't read it yet", (done) => {
 		const _fetchTopic = resolve(fetchTopic, {
 			process: _process,
 			inquirer,
@@ -88,12 +88,12 @@ describe('fetchTopic', () => {
 			open,
 			console: _console,
 		});
-		_fetchTopic(props, propsTopic, undefined).then(results => {
+		_fetchTopic(props, propsTopic, undefined).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});
 	});
-	it('empty links', done => {
+	it('empty links', (done) => {
 		const _props = {
 			sections: {
 				sectionA: {
@@ -119,14 +119,14 @@ describe('fetchTopic', () => {
 			open,
 			console: _console,
 		});
-		_fetchTopic(_props, propsTopic, undefined).then(results => {
+		_fetchTopic(_props, propsTopic, undefined).then((results) => {
 			expect(results['sectionA/topic1'].completed).toBe(true);
 			expect(typeof results['sectionA/topic1'].date).toBe('string');
 			expect(results['sectionA/topic1'].oldValue).toBe('{}');
 			done();
 		});
 	});
-	it('select leave => process.exit', done => {
+	it('select leave => process.exit', (done) => {
 		const _inquirer = {
 			prompt() {
 				return _inquirer;
@@ -151,7 +151,7 @@ describe('fetchTopic', () => {
 		});
 		_fetchTopic(props, propsTopic, undefined);
 	});
-	it('select link => open', done => {
+	it('select link => open', (done) => {
 		let counter = 0;
 		const _inquirer = {
 			prompt() {

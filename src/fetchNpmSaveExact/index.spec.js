@@ -2,7 +2,7 @@ const resolve = require('../resolve');
 const { fetchNpmSaveExact } = require('./index');
 
 describe('fetchNpmSaveExact', () => {
-	it('fetch', done => {
+	it('fetch', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -19,12 +19,12 @@ describe('fetchNpmSaveExact', () => {
 			process: { exit() {} },
 			inquirer,
 		});
-		_fetchNpmSaveExact({}).then(results => {
+		_fetchNpmSaveExact({}).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});
 	});
-	it('not configured', done => {
+	it('not configured', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -41,12 +41,12 @@ describe('fetchNpmSaveExact', () => {
 			process: { process() {} },
 			inquirer,
 		});
-		_fetchNpmSaveExact({}).then(results => {
+		_fetchNpmSaveExact({}).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});
 	});
-	it('already set', done => {
+	it('already set', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -63,12 +63,12 @@ describe('fetchNpmSaveExact', () => {
 			process: { process() {} },
 			inquirer,
 		});
-		_fetchNpmSaveExact({}).then(results => {
+		_fetchNpmSaveExact({}).then((results) => {
 			expect(results).toEqual({});
 			done();
 		});
 	});
-	it('Leave => exit process', done => {
+	it('Leave => exit process', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -91,7 +91,7 @@ describe('fetchNpmSaveExact', () => {
 		});
 		_fetchNpmSaveExact({});
 	});
-	it('exec npm set save-exact true', done => {
+	it('exec npm set save-exact true', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {
@@ -115,7 +115,7 @@ describe('fetchNpmSaveExact', () => {
 		});
 		_fetchNpmSaveExact({});
 	});
-	it('log', done => {
+	it('log', (done) => {
 		const inquirer = {
 			prompt: () => inquirer,
 			then(cb) {

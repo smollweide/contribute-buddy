@@ -24,7 +24,7 @@ describe('getUserStorageFilePath', () => {
 		});
 		expect(_getUserStorageFilePath()).toEqual('/userhome/.contributebuddy/c-b/store.json');
 	});
-	it('missing package name', done => {
+	it('missing package name', (done) => {
 		const _getUserStorageFilePath = resolve(getUserStorageFilePath, {
 			getPackage: () => ({}),
 			path,

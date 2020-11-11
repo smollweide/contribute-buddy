@@ -28,7 +28,7 @@ function runCheck({
 }) {
 	const store = _getUserStorage();
 
-	pSeries([_fetchUsername, _fetchEmail, _fetchNpmSaveExact, _fetchWelcome, _fetchReadmes]).then(results => {
+	pSeries([_fetchUsername, _fetchEmail, _fetchNpmSaveExact, _fetchWelcome, _fetchReadmes]).then((results) => {
 		const resultsStore = Object.assign(...results);
 		const readmes = Object.assign({}, store.readmes, resultsStore.readmes);
 		const newStore = Object.assign({}, store, resultsStore);
